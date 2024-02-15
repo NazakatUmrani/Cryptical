@@ -1,14 +1,12 @@
 def encrypt(text,s):
-    # Cipher(n) = De-cipher(26-n)
-    #s=s   
     result=""  #empty string
     for i in range(len(text)):
         char=text[i]
-        if(ord(char)==32):
-            result=result+chr(35)
+        if(ord(char)==32): #if the text[i] is space ' '
+            result=result+chr(35) #replace it with #
         elif(char.isupper()):  #if the text[i] is in upper case
             result=result+chr((ord(char)+s-65)%26+65)
-        else:
+        else: #if it is lower
             result=result+chr((ord(char)+s-97)%26+97)
     return result
 

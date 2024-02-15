@@ -1,16 +1,14 @@
 def decrypt(text,s):
-
-    # Cipher(n) = De-cipher(26-n)
     s=26-s 
         
     result=""  #empty string
     for i in range(len(text)):
         char=text[i]
-        if(ord(char)==35):
-            result=result+chr(32)
+        if(ord(char)==35): #if the text[i] is a #
+            result=result+chr(32) # replace it with space ' '
         elif(char.isupper()):  #if the text[i] is in upper case
             result=result+chr((ord(char)+s-65)%26+65)
-        else:
+        else: #if it is lower
             result=result+chr((ord(char)+s-97)%26+97)
     return result
 
