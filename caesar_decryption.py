@@ -6,7 +6,9 @@ def decrypt(text,s):
     result=""  #empty string
     for i in range(len(text)):
         char=text[i]
-        if(char.isupper()):  #if the text[i] is in upper case
+        if(ord(char)==35):
+            result=result+chr(32)
+        elif(char.isupper()):  #if the text[i] is in upper case
             result=result+chr((ord(char)+s-65)%26+65)
         else:
             result=result+chr((ord(char)+s-97)%26+97)
