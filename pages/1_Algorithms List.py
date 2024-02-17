@@ -1,28 +1,22 @@
-# pages/algorithms.py
 import streamlit as st
 
-def monoalphabetic():
-    st.title("Monoalphabetic Cipher")
-    st.write("The monoalphabetic cipher is a substitution cipher where each letter in the plaintext is replaced with another letter.")
+# Define function to create algorithm block
+def create_algorithm_block(title, description, link):
+    st.markdown(f"<div style='border:1px solid grey; border-radius: 5%; padding: 10px;'><h2 style='color:orange;'>{title}</h2><p>{description} <a href='{link}' style='color:orange;'>Try it!</a></p></div><br>", unsafe_allow_html=True)
 
-def caesar():
-    st.title("Caesar Cipher")
-    st.write("The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down or up the alphabet.")
+# Create algorithm blocks
+create_algorithm_block("Monoalphabetic Cipher",
+"""A type of substitution cipher where each letter of the plaintext is replaced by another letter, resulting in a scrambled message. Popular examples include Caesar Cipher and Atbash Cipher.""","Monoalphabetic")
 
-def playfair():
-    st.title("Playfair Cipher")
-    st.write("The Playfair cipher is a digraph substitution cipher where pairs of letters in the plaintext are replaced with other pairs.")
+create_algorithm_block("Caesar Cipher",
+"""A simple monoalphabetic cipher where each letter in the plaintext is shifted a fixed number of positions down the alphabet.""","Monoalphabetic")
 
-def app():
-    st.title("Algorithms")
-    algorithms = ["Monoalphabetic Cipher", "Caesar Cipher", "Playfair Cipher", "Vigenere Cipher (Coming Soon)"]
-    choice = st.selectbox("Choose an algorithm", algorithms)
+create_algorithm_block("PlayFair Cipher",
+"""A more complex substitution cipher that uses a 5x5 matrix to encrypt and decrypt messages. It involves combining pairs of letters.""","Monoalphabetic")
 
-    if choice == "Monoalphabetic Cipher":
-        monoalphabetic()
-    elif choice == "Caesar Cipher":
-        caesar()
-    elif choice == "Playfair Cipher":
-        playfair()
-    else:
-        st.write("Vigenere Cipher implementation coming soon...")
+create_algorithm_block("Vigenere Cipher",
+"""A polyalphabetic substitution cipher where each letter of the plaintext is shifted by a different amount based on a keyword.""","Monoalphabetic")
+
+# Add "More coming soon!" message
+st.subheader("More Coming Soon!")
+st.write("Stay tuned for exciting new additions to the algorithm list, including RSA, AES, and others!")

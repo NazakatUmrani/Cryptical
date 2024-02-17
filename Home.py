@@ -5,11 +5,15 @@ import streamlit as st
 
 st.markdown("""
 <style>
+#cryptical-a-python-based-web-app {
+    color: orange;
+}
+
 div.stPageLink a {
   background-color: orange;
   padding: 10px 20px;
   border-radius: 5px;
-}         
+}
 </style>
 """, unsafe_allow_html=True)
 
