@@ -101,8 +101,6 @@ def encrypt(plain_text):
                     cipher_text_pair=(row[(j0+1)%5]).upper()
                 else:
                     cipher_text_pair=(row[(j0+1)%5]).lower()
-                if(bIsSpace):
-                    cipher_text_pair=cipher_text_pair+"#"
                 if(pair[1].isupper()):
                     cipher_text_pair=str(cipher_text_pair)+(row[(j1+1)%5]).upper()
                 else:

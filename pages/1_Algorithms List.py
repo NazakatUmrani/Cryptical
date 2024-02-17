@@ -2,7 +2,7 @@ import streamlit as st
 
 # Define function to create algorithm block
 def create_algorithm_block(title, description, link):
-    st.markdown(f"<div style='border:1px solid grey; border-radius: 5%; padding: 10px;'><h2 style='color:orange;'>{title}</h2><p>{description} <a href='{link}' target='_top' style='color:orange;'>Try it!</a></p></div><br>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #1F2022; border:1px solid grey; border-radius: 5%; padding: 10px;'><h2 style='color:orange;'>{title}</h2><p>{description} <a href='{link}' target='_top' style='color:orange;'>Try it!</a></p></div><br>", unsafe_allow_html=True)
 
 # Create algorithm blocks
 create_algorithm_block("Monoalphabetic Cipher",

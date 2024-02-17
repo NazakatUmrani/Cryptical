@@ -42,6 +42,7 @@ selected = option_menu(
     }
 )
 
+st.warning("Note: The Monoalphabetic Cipher is not case-sensitive and it converts alphabets, spaces and special characters as well.")
 
 if(selected=="Encryption"):
     text=st.text_input("Enter Plain Text:")

@@ -42,6 +42,8 @@ selected = option_menu(
     }
 )
 
+st.warning("Note: The Caesar Cipher is not case-sensitive and it converts alphabets, spaces and special characters as well.")
+
 if(selected=="Encryption"):
     text=st.text_input("Enter Plain Text:")
     k=st.text_input("Enter Key:")
