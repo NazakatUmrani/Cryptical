@@ -2,31 +2,31 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 #Function to encrypt the text
-def encrypt(text):
+def encrypt(text,s):
     result=""  #empty string
     for i in range(len(text)):
         char=text[i]
-        result=result+chr(ord(char)+13)
+        result=result+chr(ord(char)+s)
     return result
 
 #Function to decrypt the text
-def decrypt(text):
+def decrypt(text,s):
     result=""  #empty string
     for i in range(len(text)):
         char=text[i]
-        result=result+chr(ord(char)-13)
+        result=result+chr(ord(char)-s)
     return result
 
 st.markdown("""
 <style>
-#monoalphabetic-cipher {
+#caesar-cipher {
     color: orange;
 }
 </style>
 """, unsafe_allow_html=True)
 
 #Title
-st.write("""# Monoalphabetic Cipher""")
+st.write("""# Caesar Cipher""")
 
 selected = option_menu(
     menu_title=None,
@@ -42,41 +42,50 @@ selected = option_menu(
     }
 )
 
-
 if(selected=="Encryption"):
     text=st.text_input("Enter Plain Text:")
-    cipher=encrypt(text)
+    k=st.text_input("Enter Key:")
+    if(k==""):
+        k=0
+    k=int(k)
+    cipher=encrypt(text,k)
     st.write(f"Encrypted text:")
     st.code(cipher, language="text")
 else:
     cipher1=st.text_input("Enter Cipher Text:")
-    text1=decrypt(cipher1)
+    k=st.text_input("Enter Key:")
+    if(k==""):
+        k=0
+    k=int(k)
+    text1=decrypt(cipher1,k)
     st.write(f"Decrypted text:")
     st.code(text1, language="text")
 
-# Explanation of the Monoalphabetic Cipher Algorithm
+# Explanation of the Caesar Cipher Algorithm
 st.markdown("""
-<h2 style='color:orange;'>How Monoalphabetic Cipher Works?</h2>
+<h2 style='color:orange;'>How Caesar Cipher Works?</h2>
 """,unsafe_allow_html=True)
 
 st.markdown("""
-It utilizes a **fixed shift value of 13** to scramble and unscramble messages. It works by shifting each letter of the plaintext **13 positions forward** in the alphabet for encryption and **13 positions backward** for decryption.
+It is a simple substitution cipher where each letter of the plaintext is shifted a specific number of positions down the alphabet (forward for encryption, backward for decryption).
 
-**Steps (Encryption):**
+**Steps:**
 
-For each character in the plaintext:
-  - Add 13 to it's ASCII code
+1. Enter a **shift value**.
+2. For each character in the plaintext:
+    - Add shift to it's ASCII Code.
 
-**Steps (Decryption):**
+**Decryption:**
 
-For each character in the plaintext:
-  - Subtract 13 from it's ASCII code
+1. Enter a **shift value**.
+2. For each character in the plaintext:
+    - Subtract shift from it's ASCII Code.
 
 **Example:**
 
  - Plaintext: "Hello, world!"
- - Encrypted text: "Uryy|9-|yq."
+ - Encrypted text: "Khoor/#Zruog$"
  - Decrypted text: "Hello, world!"
 
-**Note:** Monoalphabetic Cipher is a basic encryption technique and easily breakable. For stronger security, consider more complex ciphers.
+**Note:** Caesar Cipher is a basic encryption technique and easily breakable with frequency analysis. For stronger security, consider more complex ciphers.
 """)
