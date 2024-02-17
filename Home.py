@@ -68,17 +68,22 @@ st.write(
 
 # Social media links (optional)
 st.subheader("About")
-st.markdown(
-    """
-    Nazakat Umrani, is the developer of this web app, he is proficient in C++, Java, C and a little bit of python as well. He is linux user and lover as well, He is currently pursuing his Bachelor's Degree in Software Engineering from Quaid-e-Awam University of Engineering, Science and Technology, Nawabshah, Sindh, Pakistan.
+# Use st.columns for flexible layout
+col1, col2 = st.columns([2, 1])
 
-    **Connect with him:**
+# Display profile picture in the right column
+with col2:
+    profile_pic = st.image('img/me.jpeg', width=150)  # Replace with your image path
 
-    - [GitHub](https://github.com/NazakatUmrani)
-    - [Source Code Repo](https://github.com/NazakatUmrani/Cryptical)
-    - [Linkedin](https://linkedin.com/in/NazakatUmrani)
-    - [Twitter/X](https://twitter.com/NazakatUmrani)
+# Display description and social links in the left column
+with col1:
+    st.markdown("""
+        Nazakat Umrani is passionate about exploring the world of software development and enjoy mastering diverse programming languages like C++, Java, C, and Python. As a Linux user and enthusiast, I value its open-source philosophy and community. Currently, I'm pursuing my Bachelor's degree in Software Engineering at Quaid-e-Awam University of Engineering, Science and Technology in Nawabshah, Sindh, Pakistan.
 
-    """
-)
+        **Connect with me:**
 
+        - [GitHub](https://github.com/NazakatUmrani)
+        - [Source Code Repo](https://github.com/NazakatUmrani/Cryptical)
+        - [Linkedin](https://linkedin.com/in/NazakatUmrani)
+        - [Twitter](https://twitter.com/NazakatUmrani)
+    """)
