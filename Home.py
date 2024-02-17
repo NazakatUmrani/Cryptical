@@ -1,5 +1,18 @@
 import streamlit as st
 
+# with open('style.css') as f:
+#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+div.stPageLink a {
+  background-color: orange;
+  padding: 10px 20px;
+  border-radius: 5px;
+}         
+</style>
+""", unsafe_allow_html=True)
+
 st.title("Cryptical - A Python Based Web App")
 
 # Hero section
@@ -29,7 +42,6 @@ st.markdown(
     """
 )
 
-# Explore ciphers button
 st.page_link(
     "pages/1_Algorithms List.py",
     label="Explore Ciphers",
